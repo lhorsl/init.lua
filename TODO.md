@@ -1,0 +1,3 @@
+- Setup plugin structure w/ folders
+- Decide on outside plugins
+- Link up as submodule for dev-env
