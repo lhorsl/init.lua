@@ -5,8 +5,54 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+
+      lint.linters.golangci_lint = {
+        cmd = 'golangci-lint',
+        args = { 'run', '--out-format', 'json' },
+        stdin = false,
+        append_fname = true,
+        stream = 'stdout',
+        ignore_exitcode = true,
+        parser = function(output, bufnr)
+          local diagnostics = {}
+          if output == '' then
+            return diagnostics
+          end
+
+          local decoded = vim.json.decode(output)
+          if not decoded or not decoded.Issues then
+            return diagnostics
+          end
+
+          for _, issue in ipairs(decoded.Issues) do
+            local message = issue.Text
+            local lnum = issue.Pos.Line - 1
+            local col = issue.Pos.Column - 1
+            local end_lnum = issue.Pos.Line - 1
+            local end_col = col + 1
+
+            if issue.SourceLines and #issue.SourceLines > 0 then
+              end_col = col + #issue.SourceLines[1]
+            end
+
+            table.insert(diagnostics, {
+              source = issue.FromLinter,
+              lnum = lnum,
+              col = col,
+              end_lnum = end_lnum,
+              end_col = end_col,
+              severity = vim.diagnostic.severity.ERROR,
+              message = message,
+            })
+          end
+
+          return diagnostics
+        end,
+      }
+
       lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
+        markdown = { 'vale' },
+        go = { 'golangci-lint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

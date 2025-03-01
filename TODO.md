@@ -1,3 +1,7 @@
-- Setup plugin structure w/ folders
 - Decide on outside plugins
-- Link up as submodule for dev-env
+- remap leader y too copy "+y (do the same for paste)
+- learn qfix (for find a replace all maybe)
+- install harpoon
+- Set up install script for linters in dev-env. Linters: vale
+- install undotree
+- install vim fugative
