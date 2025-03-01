@@ -79,7 +79,6 @@ require('lazy').setup({
   -- TODO: see what of these i actually want
   require 'lhorsl.plugins.debug',
   --  require 'lhorsl.plugins.lint',
-  require 'lhorsl.plugins.neo-tree',
   require 'lhorsl.plugins.autopairs',
   -- require 'lhorsl.plugins.gitsigns',
 

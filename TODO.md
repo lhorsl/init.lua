@@ -2,6 +2,6 @@
 - remap leader y too copy "+y (do the same for paste)
 - learn qfix (for find a replace all maybe)
 - install harpoon
-- Set up install script for linters in dev-env. Linters: vale
 - install undotree
-- install vim fugative
+- nvim-surround
+- learn about mini surround

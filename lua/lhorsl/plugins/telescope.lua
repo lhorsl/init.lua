@@ -68,6 +68,22 @@ return {
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
+    -- git-specific keymaps
+    vim.keymap.set('n', '<leader>ff', function()
+      builtin.git_files { show_untracked = true }
+    end, { desc = '[F]ind [F]iles in git repo' })
+    vim.keymap.set('n', '<leader>fw', function()
+      -- Get git root directory
+      local git_cmd = io.popen 'git rev-parse --show-toplevel 2>/dev/null'
+      local git_root = git_cmd:read '*l'
+      git_cmd:close()
+
+      -- If we're in a git repo, search from git root, otherwise use current directory
+      builtin.live_grep {
+        cwd = git_root or vim.fn.getcwd(),
+      }
+    end, { desc = '[F]ind [W]ord in git repo' })
+
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
