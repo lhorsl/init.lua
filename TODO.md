@@ -1,7 +1,7 @@
 - Decide on outside plugins
-- remap leader y too copy "+y (do the same for paste)
 - learn qfix (for find a replace all maybe)
 - install harpoon
 - install undotree
-- nvim-surround
 - learn about mini surround
+- insert custom prompt for avante
+

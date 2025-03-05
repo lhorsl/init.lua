@@ -1,4 +1,4 @@
--- ----------------- [[ Setting Options]] --------------------
+----------------- [[ Setting Options]] --------------------
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -59,6 +59,7 @@ require 'lhorsl.autocommands'
 require('lazy').setup({
   -- Primary must haves
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'github/copilot.vim',
   'ThePrimeagen/vim-be-good',
   'eandrju/cellular-automaton.nvim',
   require 'lhorsl.plugins.which-key',
@@ -71,11 +72,10 @@ require('lazy').setup({
   -- Nice to haves
   require 'lhorsl.plugins.todo-comments',
   require 'lhorsl.plugins.mini',
-  -- TODO: see what of these i actually want
   require 'lhorsl.plugins.debug',
-  --  require 'lhorsl.plugins.lint',
   require 'lhorsl.plugins.autopairs',
-  -- require 'lhorsl.plugins.gitsigns',
+  require 'lhorsl.plugins.gitsigns',
+  require 'lhorsl.plugins.avante',
 
   -- Colourscheme
   {
@@ -83,7 +83,7 @@ require('lazy').setup({
     'rose-pine/neovim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'rose-pine'
+      vim.cmd.colorscheme 'rose-pine-moon'
     end,
   },
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
