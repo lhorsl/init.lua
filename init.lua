@@ -76,6 +76,7 @@ require('lazy').setup({
   require 'lhorsl.plugins.autopairs',
   require 'lhorsl.plugins.gitsigns',
   require 'lhorsl.plugins.avante',
+  require 'lhorsl.plugins.comment',
 
   -- Colourscheme
   {
