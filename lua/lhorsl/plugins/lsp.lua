@@ -183,7 +183,7 @@ return {
         dockerls = {},
         -- gdscript = {},
         -- java_language_server = {},
-        -- pyright = {},
+        pyright = {},
         lua_ls = {
           settings = {
             Lua = {

@@ -24,6 +24,13 @@ vim.opt.breakindent = true
 -- Save undo history
 vim.opt.undofile = true
 
+-- Configure persistent undo directory
+local undodir = vim.fn.expand('~/.local/share/nvim/undodir')
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
+vim.opt.undodir = undodir
+
 -- Case-insensitive searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -77,6 +84,7 @@ require('lazy').setup({
   require 'lhorsl.plugins.gitsigns',
   require 'lhorsl.plugins.avante',
   require 'lhorsl.plugins.comment',
+  require 'lhorsl.plugins.undotree',
 
   -- Colourscheme
   {

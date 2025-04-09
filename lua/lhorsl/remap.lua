@@ -36,6 +36,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- NAVIGATION/EDITING
+-- UndoTree
+vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
 
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 -- Move highlighted region up/down with JK
