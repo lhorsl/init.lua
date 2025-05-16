@@ -25,9 +25,9 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 
 -- Configure persistent undo directory
-local undodir = vim.fn.expand('~/.local/share/nvim/undodir')
+local undodir = vim.fn.expand '~/.local/share/nvim/undodir'
 if vim.fn.isdirectory(undodir) == 0 then
-  vim.fn.mkdir(undodir, "p")
+  vim.fn.mkdir(undodir, 'p')
 end
 vim.opt.undodir = undodir
 
@@ -85,7 +85,7 @@ require('lazy').setup({
   require 'lhorsl.plugins.avante',
   require 'lhorsl.plugins.comment',
   require 'lhorsl.plugins.undotree',
-
+  require 'lhorsl.plugins.nvim-notify',
   -- Colourscheme
   {
 

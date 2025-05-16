@@ -38,6 +38,18 @@ return {
       temperature = 0,
       max_tokens = 8192,
     }
+    -- Load system prompt from file
+    local prompt_file = vim.fn.stdpath 'config' .. '/lua/lhorsl/prompts/system_prompt.md'
+    local f = io.open(prompt_file, 'r')
+    local system_prompt = nil
+    if f then
+      system_prompt = f:read '*all'
+      f:close()
+      opts.system_prompt = system_prompt
+    else
+      vim.notify('Could not load system prompt file', vim.log.levels.WARN)
+      opts.system_prompt = ''
+    end
     opts.auto_suggestions_provider = 'claude'
     require('avante').setup(opts)
   end,
