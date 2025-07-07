@@ -34,9 +34,9 @@ return {
     }
     opts.claude = {
       endpoint = 'https://api.anthropic.com',
-      model = 'claude-3-7-sonnet-20250219',
+      model = 'claude-sonnet-4-20250514',
       temperature = 0,
-      max_tokens = 8192,
+      max_tokens = 64000,
     }
     -- Load system prompt from file
     local prompt_file = vim.fn.stdpath 'config' .. '/lua/lhorsl/prompts/system_prompt.md'

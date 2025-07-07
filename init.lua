@@ -86,6 +86,7 @@ require('lazy').setup({
   require 'lhorsl.plugins.comment',
   require 'lhorsl.plugins.undotree',
   require 'lhorsl.plugins.nvim-notify',
+  require 'lhorsl.plugins.startup',
   -- Colourscheme
   {
 
