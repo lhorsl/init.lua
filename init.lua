@@ -66,34 +66,31 @@ require 'lhorsl.autocommands'
 require('lazy').setup({
   -- Primary must haves
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  'github/copilot.vim',
-  'ThePrimeagen/vim-be-good',
-  'eandrju/cellular-automaton.nvim',
-  require 'lhorsl.plugins.which-key',
-  require 'lhorsl.plugins.treesitter',
-  require 'lhorsl.plugins.telescope',
-  require 'lhorsl.plugins.lsp',
+  'github/copilot.vim', -- Copilot
+  require 'lhorsl.plugins.which-key', -- Which key binding helper
+  require 'lhorsl.plugins.treesitter', -- Improve syntax highlighting and code understanding
+  require 'lhorsl.plugins.telescope', -- Fuzzy finder for files, buffers, etc.
+  require 'lhorsl.plugins.lsp', -- Language server protocol support (including completion & format)
   require 'lhorsl.plugins.autoformat',
   require 'lhorsl.plugins.autocompletion',
+  require 'lhorsl.plugins.autopairs', -- Automatically close brackets, quotes, etc.
+  require 'lhorsl.plugins.comment', -- Commenting support
+  require 'lhorsl.plugins.gitsigns',
 
   -- Nice to haves
-  require 'lhorsl.plugins.todo-comments',
-  require 'lhorsl.plugins.mini',
-  require 'lhorsl.plugins.debug',
-  require 'lhorsl.plugins.autopairs',
-  require 'lhorsl.plugins.gitsigns',
-  require 'lhorsl.plugins.avante',
-  require 'lhorsl.plugins.comment',
-  require 'lhorsl.plugins.undotree',
-  require 'lhorsl.plugins.nvim-notify',
-  require 'lhorsl.plugins.startup',
+  require 'lhorsl.plugins.todo-comments', -- Highlight TODO comments
+  require 'lhorsl.plugins.undotree', -- Undo tree visualization
+  require 'lhorsl.plugins.nvim-notify', -- Notifications
+  require 'lhorsl.plugins.startup', -- Startup screen
+  'eandrju/cellular-automaton.nvim', -- FML animation
   -- Colourscheme
   {
 
-    'rose-pine/neovim',
+    'morhetz/gruvbox',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'rose-pine-moon'
+      vim.cmd.colorscheme 'gruvbox'
+      vim.g.gruvbox_contrast_dark = 'soft'
     end,
   },
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
