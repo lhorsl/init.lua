@@ -47,7 +47,7 @@ return {
         fold_section = false,
         title = 'Footer',
         margin = 5,
-        content = { 'startup.nvim' },
+        content = { '$$ code == money $$' },
         highlight = 'Number',
         default_color = '',
       },

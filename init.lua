@@ -63,6 +63,8 @@ require 'lhorsl.autocommands'
 
 -- ----------------------[[ Configure and install plugins ]] ----------------------
 
+require('lhorsl.find-replace').setup()
+
 require('lazy').setup({
   -- Primary must haves
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
@@ -79,7 +81,6 @@ require('lazy').setup({
 
   -- Nice to haves
   require 'lhorsl.plugins.todo-comments', -- Highlight TODO comments
-  require 'lhorsl.plugins.undotree', -- Undo tree visualization
   require 'lhorsl.plugins.nvim-notify', -- Notifications
   require 'lhorsl.plugins.startup', -- Startup screen
   'eandrju/cellular-automaton.nvim', -- FML animation
