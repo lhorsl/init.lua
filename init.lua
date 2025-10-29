@@ -63,8 +63,6 @@ require 'lhorsl.autocommands'
 
 -- ----------------------[[ Configure and install plugins ]] ----------------------
 
-require('lhorsl.find-replace').setup()
-
 require('lazy').setup({
   -- Primary must haves
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
@@ -77,13 +75,16 @@ require('lazy').setup({
   require 'lhorsl.plugins.autocompletion',
   require 'lhorsl.plugins.autopairs', -- Automatically close brackets, quotes, etc.
   require 'lhorsl.plugins.comment', -- Commenting support
-  require 'lhorsl.plugins.gitsigns',
+  require 'lhorsl.plugins.gitsigns', -- Git change indicators in the sign column
+  require 'lhorsl.plugins.render-markdown', -- Render markdown files
+  require 'lhorsl.plugins.code-biscuits',
 
   -- Nice to haves
+  'ThePrimeagen/vim-be-good',
   require 'lhorsl.plugins.todo-comments', -- Highlight TODO comments
   require 'lhorsl.plugins.nvim-notify', -- Notifications
   require 'lhorsl.plugins.startup', -- Startup screen
-  'eandrju/cellular-automaton.nvim', -- FML animation
+
   -- Colourscheme
   {
 

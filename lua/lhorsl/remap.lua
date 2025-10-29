@@ -63,9 +63,6 @@ vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
 vim.keymap.set('i', '<C-c>', '<Esc>')
 
--- replace the word youre on globally in the file
-vim.keymap.set('n', '<leader>wr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 -- COPILOT
 
 vim.keymap.set('i', '<C-R>', 'copilot#Accept("\\<CR>")', {
