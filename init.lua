@@ -13,7 +13,7 @@ vim.opt.scrolloff = 10
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Enable mouse mode, can be useful for resizing splits for example!
+-- Enable mouse mode
 vim.opt.mouse = 'a'
 
 vim.opt.showmode = false
@@ -78,7 +78,8 @@ require('lazy').setup({
   require 'lhorsl.plugins.gitsigns', -- Git change indicators in the sign column
   require 'lhorsl.plugins.render-markdown', -- Render markdown files
   require 'lhorsl.plugins.code-biscuits',
-
+  require 'lhorsl.plugins.flash', -- Enhanced navigation
+  require 'lhorsl.plugins.obsidian', -- Obsidian integration
   -- Nice to haves
   'ThePrimeagen/vim-be-good',
   require 'lhorsl.plugins.todo-comments', -- Highlight TODO comments
