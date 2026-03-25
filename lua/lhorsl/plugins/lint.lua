@@ -51,7 +51,6 @@ return {
       }
 
       lint.linters_by_ft = {
-        markdown = { 'vale' },
         go = { 'golangci-lint' },
         json = { 'jsonlint' },
         python = { 'ruff' },
