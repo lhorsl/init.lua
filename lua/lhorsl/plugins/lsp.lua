@@ -177,7 +177,13 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- `:help lspconfig-all` for a list of all the pre-configured LSPs
-        gopls = {},
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = { staticcheck = true },
+            },
+          },
+        },
         bashls = {},
         docker_compose_language_service = {},
         dockerls = {},

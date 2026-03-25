@@ -38,8 +38,8 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 
--- Decrease update time
-vim.opt.updatetime = 50
+-- Controls CursorHold delay (LSP document highlights, swap writes)
+vim.opt.updatetime = 2000
 
 -- Decrease mapped sequence wait time
 vim.opt.timeoutlen = 300
@@ -77,9 +77,9 @@ require('lazy').setup({
   require 'lhorsl.plugins.comment', -- Commenting support
   require 'lhorsl.plugins.gitsigns', -- Git change indicators in the sign column
   require 'lhorsl.plugins.render-markdown', -- Render markdown files
-  require 'lhorsl.plugins.code-biscuits',
   require 'lhorsl.plugins.flash', -- Enhanced navigation
-  require 'lhorsl.plugins.obsidian', -- Obsidian integration
+  require 'lhorsl.plugins.lint', -- Linting support
+  require 'lhorsl.plugins.harpoon', -- Quick file navigation
   -- Nice to haves
   'ThePrimeagen/vim-be-good',
   require 'lhorsl.plugins.todo-comments', -- Highlight TODO comments

@@ -25,6 +25,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Trigger autoread when changing buffers
 vim.opt.autoread = true
-vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
   command = 'checktime',
 })

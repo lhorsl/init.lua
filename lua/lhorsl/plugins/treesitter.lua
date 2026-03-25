@@ -9,9 +9,15 @@ return {
     auto_install = true,
     highlight = {
       enable = true,
-      -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-      --  If you are experiencing weird indenting issues, add the language to
-      --  the list of additional_vim_regex_highlighting and disabled languages for indent.
+      -- Disable treesitter for large files to prevent lag (>5000 lines or >512KB)
+      disable = function(_, buf)
+        local max_filesize = 512 * 1024
+        local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+          return true
+        end
+        return vim.api.nvim_buf_line_count(buf) > 5000
+      end,
       additional_vim_regex_highlighting = false,
     },
     indent = { enable = true },
