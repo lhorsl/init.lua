@@ -6,7 +6,7 @@ return {
     config = function()
       local lint = require 'lint'
 
-      lint.linters.golangci_lint = {
+      lint.linters['golangci-lint'] = {
         cmd = 'golangci-lint',
         args = { 'run', '--out-format', 'json' },
         stdin = false,
