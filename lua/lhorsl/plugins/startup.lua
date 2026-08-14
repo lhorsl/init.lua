@@ -47,7 +47,7 @@ return {
         fold_section = false,
         title = 'Footer',
         margin = 5,
-        content = { '$$ code == money $$' },
+        content = { 'Intelligence is the ability to avoid doing work, yet getting the work done' },
         highlight = 'Number',
         default_color = '',
       },

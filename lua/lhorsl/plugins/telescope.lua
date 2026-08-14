@@ -68,10 +68,25 @@ return {
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
-    -- git-specific keymaps
+    -- Find files, including hidden/gitignored (e.g. .env), while pruning
+    -- heavy dirs common to Go and Vue repos to keep the walk fast.
     vim.keymap.set('n', '<leader>ff', function()
-      builtin.git_files { show_untracked = true }
-    end, { desc = '[F]ind [F]iles in git repo' })
+      builtin.find_files {
+        hidden = true,
+        no_ignore = true,
+        file_ignore_patterns = {
+          '%.git/',
+          'node_modules/',
+          'vendor/', -- Go module vendoring
+          'bin/', -- compiled binaries
+          'dist/',
+          'build/',
+          '%.nuxt/', -- Nuxt build output
+          '%.output/', -- Nuxt 3 / Nitro output
+          'coverage/',
+        },
+      }
+    end, { desc = '[F]ind [F]iles (incl. hidden/ignored)' })
     vim.keymap.set('n', '<leader>fw', function()
       -- Get git root directory
       local git_cmd = io.popen 'git rev-parse --show-toplevel 2>/dev/null'
