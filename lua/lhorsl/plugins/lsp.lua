@@ -189,7 +189,22 @@ return {
         dockerls = {},
         -- gdscript = {},
         -- java_language_server = {},
-        pyright = {},
+        pyright = {
+          -- Use the project's .venv (uv, poetry in-project, `python -m venv`) when Neovim
+          -- wasn't started from an activated environment. settings is mutated in place
+          -- because the client already holds a reference to that table.
+          before_init = function(_, config)
+            if vim.env.VIRTUAL_ENV or not config.root_dir then
+              return
+            end
+            local python = vim.fs.joinpath(config.root_dir, '.venv', 'bin', 'python')
+            if vim.uv.fs_stat(python) then
+              config.settings.python = vim.tbl_deep_extend('force', config.settings.python or {}, { pythonPath = python })
+            end
+          end,
+        },
+        -- Linting, import sorting and quick-fix code actions. Formatting runs through conform.
+        ruff = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -211,15 +226,14 @@ return {
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            require('lspconfig')[server_name].setup {
-              capabilities = capabilities,
-            }
-          end,
-        },
-      }
+      -- Configs are merged on top of nvim-lspconfig's lsp/<name>.lua defaults.
+      -- mason-lspconfig then calls vim.lsp.enable() for every installed server.
+      vim.lsp.config('*', { capabilities = capabilities })
+      for server_name, server_config in pairs(servers) do
+        vim.lsp.config(server_name, server_config)
+      end
+
+      require('mason-lspconfig').setup {}
     end,
   },
 }

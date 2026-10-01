@@ -34,7 +34,7 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       go = { 'gofmt', 'goimports' },
-      python = { 'ruff_format' },
+      python = { 'ruff_organize_imports', 'ruff_format' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

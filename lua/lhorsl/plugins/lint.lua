@@ -53,7 +53,6 @@ return {
       lint.linters_by_ft = {
         go = { 'golangci-lint' },
         json = { 'jsonlint' },
-        python = { 'ruff' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

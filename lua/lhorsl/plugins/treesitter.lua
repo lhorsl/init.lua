@@ -11,6 +11,7 @@ local ENSURE_INSTALLED = {
   'markdown_inline',
   'python',
   'query',
+  'toml',
   'vim',
   'vimdoc',
   'yaml',
